@@ -5,53 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        *  {
+        *{
             margin: 0;
             padding: 0;
         }
-        table {
-            width: 700px;
-            height: 90px;
-            margin: 15px auto;
-            border-collapse: collapse;
-            padding: 15px;
+        i {
+            font-style: normal;
         }
-        h4 {
-            
-            text-align: center;
+        div {
+            width: 200px;
+            margin: 300px auto;
         }
-        table,tr,td{
+        span {
+            display: inline-block;
+            width: 80px;
+            height: 30px;
             border: 1px solid #000;
+            line-height: 30px;
             text-align: center;
         }
     </style>
 </head>
 <body>
+    <div>
+        <i>抽中的选手是:</i>
+        <span>DF </span>
+    </div>
     <script>
-        let total = +prompt("请输入您的银行卡存钱")
-        let waterBill=+prompt("请输入您的网费")
-        let eleBill=+prompt("请输入您的电费")
-        let intCharge =+prompt("请输入您的网费")
-        let balence =total-waterBill-eleBill-intCharge;
-        console.write(`
-        <table>
-        <h4>2020年12月消费支出</h4>
-        <tr>
-            <td>银行卡余额</td>
-            <td>水费</td>
-            <td>电费</td>
-            <td>网费</td>
-            <td>银行卡余额</td>
-        </tr>
-        <tr>
-            <td>${total}</td>
-            <td>${waterBill}</td>
-            <td>${eleBill}</td>
-            <td>${intCharge}</td>
-            <td>${balence}</td>
-        </tr>
-    </table>
-        `);
+        let span = document.querySelector('span');
+        let str=['张飞','蔡文姬','罗小黑','刘备','九色鹿','艾丝妲'];
+        function getRandom(min,max){
+            return Math.floor(Math.random()*(max-min+1)+min);
+        }
+        let name =str[getRandom(0,str.length-1)];
+        span.innerHTML = name;
     </script>
 </body>
 </html>
