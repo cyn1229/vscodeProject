@@ -5,40 +5,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
+            /* box-sizing: border-box; */
         }
-        i {
-            font-style: normal;
+        .box {
+            position: relative;
+            width: 700px;
+            height: 320px;
+            margin: 100px auto;
+            background-color: pink;
         }
-        div {
-            width: 200px;
-            margin: 300px auto;
+        img {
+            display: block;
+            width: 700px;
+            height: 320px;
         }
-        span {
-            display: inline-block;
-            width: 80px;
+        .discribe {
+            position: absolute;
+            bottom: 0px;
+            left: 0;
+            width: 700px;
             height: 30px;
-            border: 1px solid #000;
-            line-height: 30px;
-            text-align: center;
+            background-color: blue;
         }
     </style>
 </head>
 <body>
-    <div>
-        <i>抽中的选手是:</i>
-        <span>DF </span>
+    <div class="box">
+        <img src="../images/b01.jpg" alt="轮播图1">
+        <div class="discribe">第一张图的描述信息</div>
     </div>
     <script>
-        let span = document.querySelector('span');
-        let str=['张飞','蔡文姬','罗小黑','刘备','九色鹿','艾丝妲'];
-        function getRandom(min,max){
-            return Math.floor(Math.random()*(max-min+1)+min);
+        let data=[
+            {
+                imgSrc: '../images/b01.jpg',
+                discribe: '年度校园主题活动1'
+            },
+            {
+                imgSrc: '../images/b02.jpg',
+                discribe: '年度校园主题活动2'
+            },
+            {
+                imgSrc: '../images/b03.jpg',
+                discribe: '年度校园主题活动3'
+            },
+            {
+                imgSrc: '../images/b04.jpg',
+                discribe: '年度校园主题活动4'
+            },
+            {
+                imgSrc: '../images/b05.jpg',
+                discribe: '年度校园主题活动5'
+            },
+            {
+                imgSrc: '../images/b06.jpg',
+                discribe: '年度校园主题活动6'
+            },
+            {
+                imgSrc: '../images/b07.jpg',
+                discribe: '年度校园主题活动7'
+            },
+            {
+                imgSrc: '../images/b08.jpg',
+                discribe: '年度校园主题活动8'
+            },
+            {
+                imgSrc: '../images/b09.jpg',
+                discribe: '年度校园主题活动9'
+            }
+        ]
+        let img = document.querySelector('img');
+        let discribe = document.querySelector('.discribe')
+        let i=0;
+        function changeImg()
+        {
+            i++;
+            img.src=data[i].imgSrc;
+            discribe.innerHTML=data[i].discribe;
+            i === data.length-1 ? i = -1 : i;
         }
-        let name =str[getRandom(0,str.length-1)];
-        span.innerHTML = name;
+        let test = setInterval(changeImg,1000);
+        
     </script>
 </body>
 </html>
