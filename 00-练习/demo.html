@@ -8,86 +8,48 @@
         * {
             margin: 0;
             padding: 0;
-            /* box-sizing: border-box; */
+        }
+        @font-face {
+            font-family: 'icomoon';
+            src:  url('fonts/icomoon.eot?341qab');
+            src:  url('fonts/icomoon.eot?341qab#iefix') format('embedded-opentype'),
+                url('fonts/icomoon.ttf?341qab') format('truetype'),
+                url('fonts/icomoon.woff?341qab') format('woff'),
+                url('fonts/icomoon.svg?341qab#icomoon') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: block;
         }
         .box {
-            position: relative;
-            width: 700px;
-            height: 320px;
+            width: 100px;
+            height: 130px;
             margin: 100px auto;
-            background-color: pink;
+            border: 1px solid #ccc;
+            padding: 6px;
         }
-        img {
-            display: block;
-            width: 700px;
-            height: 320px;
+        .box span {
+            font-family: 'icomoon';
         }
-        .discribe {
-            position: absolute;
-            bottom: 0px;
-            left: 0;
-            width: 700px;
-            height: 30px;
-            background-color: blue;
+        .box h4 {
+            width: 100%;
+            height: 20px;
+            font: normal 700 16px/20px '宋体';
+            color: #ff5000;
+            text-align: center;
+        }
+        .box img {
+            width: 90px;
+            height: 90px;
+            margin-left: 5px;
+            margin-top: 8px;
         }
     </style>
 </head>
 <body>
     <div class="box">
-        <img src="../images/b01.jpg" alt="轮播图1">
-        <div class="discribe">第一张图的描述信息</div>
+        <span></span>
+        <h4>去领红包</h4>
+        <img src="../images/code.png" alt="taobao">
     </div>
-    <script>
-        let data=[
-            {
-                imgSrc: '../images/b01.jpg',
-                discribe: '年度校园主题活动1'
-            },
-            {
-                imgSrc: '../images/b02.jpg',
-                discribe: '年度校园主题活动2'
-            },
-            {
-                imgSrc: '../images/b03.jpg',
-                discribe: '年度校园主题活动3'
-            },
-            {
-                imgSrc: '../images/b04.jpg',
-                discribe: '年度校园主题活动4'
-            },
-            {
-                imgSrc: '../images/b05.jpg',
-                discribe: '年度校园主题活动5'
-            },
-            {
-                imgSrc: '../images/b06.jpg',
-                discribe: '年度校园主题活动6'
-            },
-            {
-                imgSrc: '../images/b07.jpg',
-                discribe: '年度校园主题活动7'
-            },
-            {
-                imgSrc: '../images/b08.jpg',
-                discribe: '年度校园主题活动8'
-            },
-            {
-                imgSrc: '../images/b09.jpg',
-                discribe: '年度校园主题活动9'
-            }
-        ]
-        let img = document.querySelector('img');
-        let discribe = document.querySelector('.discribe')
-        let i=0;
-        function changeImg()
-        {
-            i++;
-            img.src=data[i].imgSrc;
-            discribe.innerHTML=data[i].discribe;
-            i === data.length-1 ? i = -1 : i;
-        }
-        let test = setInterval(changeImg,1000);
-        
-    </script>
 </body>
 </html>
