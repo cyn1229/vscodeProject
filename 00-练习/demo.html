@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- <link rel="stylesheet" href="//at.alicdn.com/t/c/font_3234701_k6p154bmiub.css"> -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
         * {
             margin: 0;
             padding: 0;
         }
-        @font-face {
+        /* @font-face {
             font-family: 'icomoon';
             src:  url('fonts/icomoon.eot?341qab');
             src:  url('fonts/icomoon.eot?341qab#iefix') format('embedded-opentype'),
@@ -19,16 +21,24 @@
             font-weight: normal;
             font-style: normal;
             font-display: block;
-        }
+        } */
         .box {
+            position: relative;
             width: 100px;
             height: 130px;
             margin: 100px auto;
             border: 1px solid #ccc;
             padding: 6px;
         }
-        .box span {
+        /* .box span {
             font-family: 'icomoon';
+        } */
+        .box i {
+            position: absolute;
+            top: -1px;
+            left: -18px;
+            border: 1px solid #ccc;
+            color: #ccc;
         }
         .box h4 {
             width: 100%;
@@ -47,9 +57,18 @@
 </head>
 <body>
     <div class="box">
-        <span></span>
+        <!-- <span></span> -->
+        <!-- <i class="iconfont icon-guanbi"></i> -->
+        <i class='bx bx-x'></i>
         <h4>去领红包</h4>
         <img src="../images/code.png" alt="taobao">
     </div>
+    <script>
+        let close =document.querySelector('.box i');
+        close.addEventListener('click',function(){
+            this.parentNode.style.display='none';
+        })
+        
+    </script>
 </body>
 </html>
