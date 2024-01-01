@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YY</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            width: 1000px;
+            height: 600px;
+            margin: 40px auto;
+        }
+        .table {
+            float:left;
+            margin-right: 30PX;
+        }
+        table {
+            border-collapse:collapse;
+            /* text-align: center; */
+        }
+        .table th {
+            background-color: #f3f3f3;
+        }
+        th,td {
+            border: 1px solid #ccc;
+            width: 160px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+        }
+        .table span {
+            margin: 0 30px;
+        }
+        .table tr td a {
+           text-decoration: underline;
+        }
+        .table tr td.red {
+            color: red;
+        }
+        .form form{
+            height: 100%;
+            padding-top: 20px;
+        }
+        /* .form p {
+            margin: 18px 0;
+        } */
+        .form input {
+            height: 30px;
+            padding-left: 1em;
+        }
+        .form input::placeholder {
+            font-size: 14px;
+        }
+        .form button {
+            background-color: #055f9e;
+            color: #fff;
+            width: 60px;
+            height: 30px;
+            font-size: 13px;
+            border-radius: 5px;
+            margin-left: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="table">
+            <table>
+                <tr>
+                    <th>编号</th>
+                    <th>科目</th>
+                    <th>成绩</th>
+                    <th>操作</th>
+                </tr>
+                <tr v-for="(item,index) in list":key='item.id'>
+                    <td>{{index+1}}</td>
+                    <td>{{item.subject}}</td>
+                    <td :class="{red: item.score<60}">{{item.score}}</td>
+                    <td><a href="#" @click="del(item.id)">删除</a></td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <span>总分：{{totalSco}}</span><span>平均分：{{average}}</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="form">
+            <form action="">
+                <input type="text" placeholder="请输入科目" v-model="addSubject" >
+                <input type="text" placeholder="请输入分数" v-model.number="addScore" @keyup.enter="addDate">
+            </form>
+            
+            <button @click="addDate">添加</button>
+        </div>
+        
+    </div>
+    <script>
+        const app = new Vue({
+            el: '.box',
+            data: {
+                addSubject: '',
+                addScore: '',
+                list:[
+                    {id:1,subject:'语文',score:46},
+                    {id:2,subject:'英语',score:80},
+                    {id:3,subject:'数学',score:150},
+                    {id:4,subject:'地理',score:150},
+
+                ]
+            },
+            methods: {
+                addDate() {
+                    if (!this.addSubject) {
+                        alert('请输入科目')
+                        return
+                    }
+                    if (typeof this.addScore !== 'number') {
+                        alert('请输入正确的成绩')
+                        return
+                    }
+                        this.list.push({
+                        id: +new Date(),
+                        subject: this.addSubject,
+                        score: this.addScore
+                    })
+                    this.addScore=''
+                    this.addSubject=''
+                },
+                del(id){
+                   this.list= this.list.filter(item=>item.id!==id)
+                }
+            },
+            computed: {
+                totalSco(){
+                    return this.list.reduce((sum,item)=>sum+item.score,0)
+                },
+                average(){
+                    return this.totalSco/2;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,5 +1,8 @@
-let names=['赵云','黄忠','关羽','张飞','马超','刘备','曹操'];
-function getRandom(min,max){
-    return Math.floor(Math.random()*(max-min+1)-min);
-}
-console.log(names[getRandom(0,names.length-1)]);
+var array = [];
+var newarr = array.filter(item => {item.num!==14
+    console.log(item.num);
+});
+// newarr.forEach(element => {
+//     console.log(element)
+// }); //判断数组中是否有14
+ //true

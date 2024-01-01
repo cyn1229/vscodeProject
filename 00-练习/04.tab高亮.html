@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YY</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+            display: inline-block;
+        }
+        .box {
+            width: 600px;
+            height: 60px;
+            box-shadow: 0 0 10px rgb(0, 0, 0);
+            margin: 100px auto;
+            padding-top: 4px;
+        }
+        .title ul{
+            width: 100%;
+            height: 50px;
+            border-bottom: 1px solid #f12521;
+            padding: 0 10px;
+        }
+        .title ul li {
+            float: left;
+            width: 80px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 15px;
+        }
+        .title ul li a {
+            padding: 0 10px;
+        }
+        .selected {
+            background-color: #f12521;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="title">
+            <ul>
+                <li v-for="(item,index) in list":key="item.id"><a href="#" :class="{selected:index===activeIndex}" @click="changeTab(index)">{{item.name}}</a></li>
+                <!-- <li><a href="#"></a></li>
+                <li><a href="#"></a></li> -->
+            </ul>
+        </div>
+    </div>
+    <script>
+        const app = new Vue({
+            el: '.box',
+            data: {
+                activeIndex: 0,
+                list: [
+                    {id:1,name: '京东秒杀'},
+                    {id:1,name: '每日特价'},
+                    {id:1,name: '品类秒杀'}
+                ]
+            },
+            methods: {
+                changeTab(index){
+                    this.activeIndex=index;
+                }
+            }
+        })
+    </script>
+</body>
+</html>
