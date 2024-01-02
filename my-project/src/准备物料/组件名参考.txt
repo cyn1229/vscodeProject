@@ -1,0 +1,30 @@
+XtxShortCut
+XtxHeaderNav
+XtxBanner
+XtxNewGoods
+XtxHotBrand
+XtxTopic
+XtxFooter
+
+
+XtxShortCut  => 快捷链接
+XtxHeaderNav => 顶部导航
+XtxBanner    => 轮播区域
+XtxNewGoods  => 新鲜好物
+XtxHotBrand  => 热门品牌
+XtxTopic     => 最新专题
+XtxFooter    => 版权底部
+
+会员中心
+帮助中心
+在线客服
+手机版
+首页
+生鲜
+美食
+餐厨
+电器
+居家
+洗护
+孕婴
+服装

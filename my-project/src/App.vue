@@ -1,24 +1,41 @@
 <template>
-  <div id ="app">
-    <div class="box" @click="fn">盒子</div>
+  <div class="app">
+    <!-- 快捷链接 -->
+    <XtxShortCut></XtxShortCut>
+    <!-- 顶部导航 -->
+    <XtxHeaderNav></XtxHeaderNav>
+    <!-- 轮播区域 -->
+    <XtxBanner></XtxBanner>
+    <!-- 新鲜好物 -->
+    <XtxNewGoods></XtxNewGoods>
+    <!-- 热门品牌 -->
+    <XtxHotBrand></XtxHotBrand>
+    <!-- 最新专题 -->
+    <XtxTopic></XtxTopic>
+    <!-- 版权底部 -->
+    <XtxFooter></XtxFooter>
   </div>
 </template>
 
 <script>
+import XtxShortCut from "./components/XtxShortCut2"
+import XtxHeaderNav from "./components/XtxHeaderNav"
+import XtxBanner from "./components/XtxBanner"
+import XtxNewGoods from "./components/XtxNewGoods"
+import XtxHotBrand from "./components/XtxHotBrand"
+import XtxTopic from "./components/XtxTopic"
+import XtxFooter from "./components/XtxFooter"
 export default {
-  methods: {
-    fn(){
-      alert("哈哈哈")
-    }
+  components: {
+    XtxShortCut,
+    XtxHeaderNav,
+    XtxBanner,
+    XtxNewGoods,
+    XtxHotBrand,
+    XtxTopic,
+    XtxFooter
   }
-}
+};
 </script>
 
-
-<style lang="less">
-.box {
-  width: 200px;
-  height: 200px;
-  background-color: pink;
-}
-</style>
+<style></style>
